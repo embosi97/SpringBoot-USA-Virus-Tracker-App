@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+	<title>US Covid Tracker</title>
+</head>
+
+<body>
+
+<div class="container">
+
+	<h3 th:text="'United States Covid-19 Statistics (As of ' + ${theDate} + ') '"></h3>
+	<hr>
+	
+	<table class="table table-bordered table-striped">
+		<thead class="thead-dark">
+			<tr>
+				<th>County, State</th>
+				<th>Daily Cases</th>
+				<th>Weekly Cases</th>
+				<th>Average Cases</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr th:each="tempLocationStats : ${locationStats}">
+
+				<td th:text="${tempLocationStats.location}" />
+				<td th:text="${tempLocationStats.dailyCases}" />	
+				<td th:text="${tempLocationStats.weeklyCases}" />	
+				<td th:text="${tempLocationStats.averageCases}" />	
+			
+			</tr>
+		</tbody>		
+	</table>
+	
+</div>
+	
+</body>
+</html>
+
